@@ -1,10 +1,11 @@
 import { StatusBar } from "expo-status-bar";
+import styled from "styled-components";
 import { useState } from "react";
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import { mycolors } from "../../../utils/colors";
 import { spacing, fontsizes } from "../../../utils/sizes";
 import { Searchbar } from "react-native-paper";
-import { RestuarantInfo } from "../components/restuarant-info.component";
+import { RestuarantInfoCard } from "../components/restuarant-info-card.component";
 
 export const RestuarantScreen = () => {
   const [searchQuery, setSearchQuery] = useState();
@@ -20,7 +21,7 @@ export const RestuarantScreen = () => {
           />
         </View>
         <View style={styles.listContainer}>
-          <RestuarantInfo />
+          <RestuarantInfoCard />
         </View>
       </SafeAreaView>
     </>
