@@ -10,6 +10,13 @@ export const RestuarantInfoCard = ({ restuarant = {} }) => {
     color: black;
     padding: 10px;
   `;
+  const RestuarantCard = styled(Card)`
+    background-color: white;
+  `;
+  const RestuarantCardCover = styled(Card.Cover)`
+    padding: 20px;
+    backgroundcolor: white;
+  `;
   const {
     name = "kwaXhosa Cuisine",
     icon,
@@ -25,19 +32,10 @@ export const RestuarantInfoCard = ({ restuarant = {} }) => {
   } = restuarant; //restuarant is an object
   return (
     <ScrollView>
-      <Card style={styles.card} elevation={5}>
-        <Card.Cover
-          key={name}
-          source={{ uri: photos[1] }}
-          style={styles.cover}
-        />
+      <RestuarantCard elevation={5}>
+        <RestuarantCardCover key={name} source={{ uri: photos[1] }} />
         <Title>{name}</Title>
-      </Card>
+      </RestuarantCard>
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  card: { backgroundColor: mycolors.white },
-  cover: { padding: 20, backgroundColor: mycolors.white },
-});

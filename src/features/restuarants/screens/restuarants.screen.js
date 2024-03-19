@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { useState } from "react";
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import { mycolors } from "../../../utils/colors";
@@ -9,35 +9,32 @@ import { RestuarantInfoCard } from "../components/restuarant-info-card.component
 
 export const RestuarantScreen = () => {
   const [searchQuery, setSearchQuery] = useState();
+  const MainContainer = styled.SafeAreaView`
+    flex: 1;
+  `;
+  const SearchContainer = styled.View`
+    margintop: StatusBar.currentHeight;
+    padding: 15px;
+  `;
+  const ListContainer = styled.View`
+    flex: 1;
+    padding: 15px;
+  `;
   return (
     <>
-      <SafeAreaView style={styles.container}>
-        <View style={styles.searchContainer}>
+      <MainContainer>
+        <SearchContainer>
           <Searchbar
             placeholder="Search"
             onChangeText={setSearchQuery}
             value={searchQuery}
             mode="view"
           />
-        </View>
-        <View style={styles.listContainer}>
+        </SearchContainer>
+        <ListContainer>
           <RestuarantInfoCard />
-        </View>
-      </SafeAreaView>
+        </ListContainer>
+      </MainContainer>
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  searchContainer: {
-    marginTop: StatusBar.currentHeight,
-    padding: spacing.lg,
-  },
-  listContainer: {
-    flex: 1,
-    padding: spacing.lg,
-  },
-});
