@@ -7,15 +7,15 @@ const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
 
 export const RestuarantInfoCard = ({ restuarant = {} }) => {
   const Title = styled.Text`
-    color: black;
-    padding: 10px;
+    color: ${(props) => props.theme.colors.text.secondary};
+    padding: ${(props) => props.theme.space[2]};
   `;
   const RestuarantCard = styled(Card)`
-    background-color: white;
+    background-color: ${(props) => props.theme.colors.bg.primary};
   `;
   const RestuarantCardCover = styled(Card.Cover)`
-    padding: 20px;
-    backgroundcolor: white;
+    padding: ${(props) => props.theme.space[3]};
+    backgroundcolor: ${(props) => props.theme.colors.bg.primary};
   `;
   const {
     name = "kwaXhosa Cuisine",
